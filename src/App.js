@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import TopBar from './components/TopBar';
 import KanbanBoard from './components/KanbanBoard';
-import axios from 'axios';
 
 function App() {
   const [data, setData] = useState({ tickets: [], users: [] });
@@ -13,8 +12,13 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://api.quicksell.co/v1/internal/frontend-assignment');
-      setData(response.data);
+      const response = await fetch('https://api.quicksell.co/v1/internal/frontend-assignment');
+      if (response.ok) {
+        const jsonData = await response.json();
+        setData(jsonData);
+      } else {
+        console.error('Error fetching data:', response.status, response.statusText);
+      }
     } catch (error) {
       console.error('Error fetching data:', error);
     }
