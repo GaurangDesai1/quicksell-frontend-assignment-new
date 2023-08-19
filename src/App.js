@@ -7,7 +7,7 @@ function App() {
   const [data, setData] = useState({ tickets: [], users: [] });
 
   // Update the proxy server URL based on your deployment
-  const proxyServerUrl = 'https://proxy-server-taupe.vercel.app/'; // Replace with your actual proxy server URL
+  const proxyServerUrl = 'https://api.quicksell.co/v1/internal/frontend-assignment'; // Replace with your actual proxy server URL
 
   useEffect(() => {
     fetchData(proxyServerUrl);
