@@ -8,17 +8,22 @@ function App() {
   const [data, setData] = useState({ tickets: [], users: [] });
 
   useEffect(() => {
-    // Fetch data from the API
-    axios.get('https://api.quicksell.co/v1/internal/frontend-assignment')
-      .then(response => {
-        setData(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
+    fetchData();
   }, []);
 
-  // Load the saved options from localStorage on initial load
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('https://api.quicksell.co/v1/internal/frontend-assignment');
+      setData(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  const [displayOption, setDisplayOption] = useState('');
+  const [groupingOption, setGroupingOption] = useState('');
+  const [sortingOption, setSortingOption] = useState('');
+
   useEffect(() => {
     const savedDisplayOption = localStorage.getItem('displayOption');
     const savedGroupingOption = localStorage.getItem('groupingOption');
@@ -37,11 +42,6 @@ function App() {
     }
   }, []);
 
-  const [displayOption, setDisplayOption] = useState('');
-  const [groupingOption, setGroupingOption] = useState('');
-  const [sortingOption, setSortingOption] = useState('');
-
-  // Save the selected options to localStorage whenever they change
   useEffect(() => {
     if (displayOption) {
       localStorage.setItem('displayOption', displayOption);
@@ -64,7 +64,6 @@ function App() {
         selectedGroupingOption={groupingOption}
         selectedSortingOption={sortingOption}
       />
-
       <KanbanBoard
         displayOption={displayOption}
         data={data}
