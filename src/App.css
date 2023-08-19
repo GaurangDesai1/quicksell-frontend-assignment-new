@@ -1,0 +1,166 @@
+html, body, div, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set box-sizing to border-box for all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Global styles */
+
+.app {
+  text-align: center;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: medium;
+  background-color: #F4F5F9;
+  margin: 0;
+}
+
+/* Top bar containing the display button */
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 18px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* Add this */
+}
+
+.button-display{
+  font-size: 15px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  width: 100px;
+  height: 25px;
+  border: 2px solid rgb(210, 210, 210);
+  box-sizing: border-box;
+}
+
+.display-dropdown {
+  position: relative;
+}
+
+/* Dislpay dropdown box */
+
+.dropdown-content {
+  position: absolute;
+  top: 140%;
+  left: 0;
+  z-index: 1;
+  padding: 30px 50px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(136, 136, 136, 0.913);
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-row{
+  display: flex;
+}
+
+/* Entire main kanban-board */
+
+.kanban-board {
+  display: flex;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+/* columns of the kanban-board */
+.column {
+  flex: 1;
+  margin-right: 6px;
+  padding: 3px;
+}
+
+/* the top row / header of each column */
+
+.symbol-icon {
+  width: 15px; 
+  height: 15px; 
+  margin-right: 10px;
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 9px;
+}
+
+.card-count {
+  color: gray;
+  font-size: 13px;
+  padding-left: 10px;
+}
+
+.button-add{
+  background: none;
+  border: none;
+}
+
+/* card styling */
+
+.card {
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid rgb(234, 234, 234);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px 8px;
+  padding: 10px;
+  width: 250px;
+  height: 100px;
+}
+
+.card-id{
+  color:grey;
+  font-size: 12px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.card-title {
+  color: black;
+  font-size: 12px;
+  font-weight:500;
+  text-align: left;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  position: relative;
+  margin-top: 4px;
+}
+
+.card-title::after {
+  content: "";
+  display: block;
+  height: 1em; /* Adjust as needed */
+}
+
+.card-tag {
+  margin-top: 10px;
+  color: grey;
+  font-size: 10px;
+  text-align: left;
+  font-weight: bold;
+  border: 1px solid rgb(244, 243, 243);
+  box-sizing: border-box;
+  width: 100px;
+  height: 15px;
+  border-radius: 3px;
+}

@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('kanban-board/Inter-VariableFont_slnt,wght.ttf') format('truetype');
+    font-weight: medium;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'Inter';
+  }
+  
