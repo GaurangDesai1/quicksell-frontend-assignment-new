@@ -6,13 +6,16 @@ import KanbanBoard from './components/KanbanBoard';
 function App() {
   const [data, setData] = useState({ tickets: [], users: [] });
 
+  // Update the proxy server URL based on your deployment
+  const proxyServerUrl = 'https://proxy-server-taupe.vercel.app/'; // Replace with your actual proxy server URL
+
   useEffect(() => {
-    fetchData();
+    fetchData(proxyServerUrl);
   }, []);
 
-  const fetchData = async () => {
+  const fetchData = async (url) => {
     try {
-      const response = await fetch('https://api.quicksell.co/v1/internal/frontend-assignment');
+      const response = await fetch(url);
       if (response.ok) {
         const jsonData = await response.json();
         setData(jsonData);
